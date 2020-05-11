@@ -1,0 +1,43 @@
+[
+	{
+		#applications : [
+			'AWSCoreApp' : 'JvdS 1.0 + VM 2020Apr17 1423 + 1.0',
+			'AWSSimpleStorageServiceApp' : 'VM 2020Apr17 1423 + 3',
+			'AWSVASTApp' : 'VM 2020Apr17 1423 + 3',
+			'StAPXmlExtensionsApp' : 'VM 2020Apr21 1115 + 1',
+			'ZincVASTAdapterApp' : 'VM 2020Apr17 1422 + 2'
+		],
+		#conditions : [
+			{
+				#condition : 'true',
+				#requiredMaps : [
+					'Platform Portability' : 'V 9.2.0  [439]',
+					'z.ST: XML Parser' : 'V 9.2.1  [457]',
+					'z.ST: Server Smalltalk (SST) - HTTP' : 'V 9.2.1  [457]',
+					'z.ST: JSON Support' : 'V 9.2.1  [457]'
+				]
+			}
+		],
+		#name : 'AWS',
+		#versionName : '1.1',
+		#comment : ''
+	},
+	{
+		#applications : [
+			'AWSCoreTestsApp' : 'VM 2020Apr17 1423 + 3',
+			'AWSSimpleStorageServiceTestsApp' : 'VM 2020Apr17 1423 + 3'
+		],
+		#conditions : [
+			{
+				#condition : 'true',
+				#requiredMaps : [
+					'AWS' : '1.1',
+					'z.ST: SUnit' : 'V 9.2.1  [457]'
+				]
+			}
+		],
+		#name : 'AWS Tests',
+		#versionName : '1.1',
+		#comment : ''
+	}
+]
