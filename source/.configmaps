@@ -1,43 +1,99 @@
 [
 	{
-		#applications : [
-			'AWSCoreApp' : 'JvdS 1.0 + VM 2020Apr17 1423 + 6',
-			'AWSSimpleStorageServiceApp' : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
-			'AWSVASTApp' : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
-			'StAPXmlExtensionsApp' : 'VM 2020Apr21 1115 + 1',
-			'ZincVASTAdapterApp' : 'VM 2020Apr17 1422 + 5'
-		],
 		#conditions : [
 			{
 				#condition : 'true',
 				#requiredMaps : [
-					'Platform Portability' : 'V 9.2.0  [439]',
-					'z.ST: XML Parser' : 'V 9.2.1  [457]',
-					'z.ST: Server Smalltalk (SST) - HTTP' : 'V 9.2.1  [457]',
-					'z.ST: JSON Support' : 'V 9.2.1  [457]'
+					{
+						#name : 'Platform Portability',
+						#versionName : 'V 9.2.0  [439]',
+						#ts : 3746251879
+					},
+					{
+						#name : 'z.ST: XML Parser',
+						#versionName : 'V 9.2.1  [457]',
+						#ts : 3761144594
+					},
+					{
+						#name : 'z.ST: Server Smalltalk (SST) - HTTP',
+						#versionName : 'V 9.2.1  [457]',
+						#ts : 3761144594
+					},
+					{
+						#name : 'z.ST: JSON Support',
+						#versionName : 'V 9.2.1  [457]',
+						#ts : 3761144594
+					}
 				]
+			}
+		],
+		#ts : 3766742672,
+		#comment : '',
+		#formatVersion : '1.1',
+		#applications : OrderedCollection [
+			{
+				#name : 'AWSCoreApp',
+				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 6',
+				#ts : 3766736290
+			},
+			{
+				#name : 'AWSSimpleStorageServiceApp',
+				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
+				#ts : 3766734482
+			},
+			{
+				#name : 'AWSVASTApp',
+				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
+				#ts : 3766734467
+			},
+			{
+				#name : 'StAPXmlExtensionsApp',
+				#versionName : 'VM 2020Apr21 1115 + 1',
+				#ts : 3766646660
+			},
+			{
+				#name : 'ZincVASTAdapterApp',
+				#versionName : 'VM 2020Apr17 1422 + 5',
+				#ts : 3766734456
 			}
 		],
 		#name : 'AWS',
-		#versionName : '1.3',
-		#comment : ''
+		#versionName : '1.3'
 	},
 	{
-		#applications : [
-			'AWSCoreTestsApp' : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
-			'AWSSimpleStorageServiceTestsApp' : 'JvdS 1.0 + VM 2020Apr17 1423 + 5'
-		],
 		#conditions : [
 			{
 				#condition : 'true',
 				#requiredMaps : [
-					'AWS' : '1.3',
-					'z.ST: SUnit' : 'V 9.2.1  [457]'
+					{
+						#name : 'AWS',
+						#versionName : '1.3',
+						#ts : 3766742672
+					},
+					{
+						#name : 'z.ST: SUnit',
+						#versionName : 'V 9.2.1  [457]',
+						#ts : 3761144594
+					}
 				]
 			}
 		],
+		#ts : 3766742739,
+		#comment : '',
+		#formatVersion : '1.1',
+		#applications : OrderedCollection [
+			{
+				#name : 'AWSCoreTestsApp',
+				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
+				#ts : 3766734487
+			},
+			{
+				#name : 'AWSSimpleStorageServiceTestsApp',
+				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
+				#ts : 3766734491
+			}
+		],
 		#name : 'AWS Tests',
-		#versionName : '1.3',
-		#comment : ''
+		#versionName : '1.3'
 	}
 ]
