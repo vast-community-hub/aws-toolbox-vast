@@ -6,7 +6,7 @@
 				#requiredMaps : [
 					{
 						#name : 'Platform Portability',
-						#versionName : 'V 9.2.0  [439]',
+						#versionName : 'V 9.2.0  [453]',
 						#ts : 3746251879
 					},
 					{
@@ -33,28 +33,28 @@
 		#applications : OrderedCollection [
 			{
 				#name : 'AWSCoreApp',
-				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 6',
-				#ts : 3766736290
+				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
+				#ts : 3767354590
 			},
 			{
 				#name : 'AWSSimpleStorageServiceApp',
-				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
-				#ts : 3766734482
+				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
+				#ts : 3767354596
 			},
 			{
 				#name : 'AWSVASTApp',
-				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
-				#ts : 3766734467
+				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
+				#ts : 3767354587
 			},
 			{
 				#name : 'StAPXmlExtensionsApp',
-				#versionName : 'VM 2020Apr21 1115 + 1',
-				#ts : 3766646660
+				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
+				#ts : 3767354574
 			},
 			{
 				#name : 'ZincVASTAdapterApp',
-				#versionName : 'VM 2020Apr17 1422 + 5',
-				#ts : 3766734456
+				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
+				#ts : 3767354575
 			}
 		],
 		#name : 'AWS',
@@ -84,13 +84,13 @@
 		#applications : OrderedCollection [
 			{
 				#name : 'AWSCoreTestsApp',
-				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
-				#ts : 3766734487
+				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
+				#ts : 3767354604
 			},
 			{
 				#name : 'AWSSimpleStorageServiceTestsApp',
-				#versionName : 'JvdS 1.0 + VM 2020Apr17 1423 + 5',
-				#ts : 3766734491
+				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
+				#ts : 3767354607
 			}
 		],
 		#name : 'AWS Tests',
