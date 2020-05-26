@@ -33,7 +33,7 @@ Support library for using AWS from VA Smalltalk and for creating Lambda function
 path := (CfsPath named: '<insert path to root aws-toolbox-vast local repo here>').
 loader := TonelLoader readFromPath: path.
 loader
-	beUnattended.
+	beUnattended;
 	useGitVersion.
 loader loadAllMapsWithRequiredMaps.
 ```
