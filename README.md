@@ -1,8 +1,8 @@
 <p align="center">
 <!---<img src="assets/logos/128x128.png">-->
- <h1 align="center">AWS Support for VASmalltalk</h1>
+ <h1 align="center">AWS Support for VAST Platform (VA Smalltalk)</h1>
   <p align="center">
-    AWS Support for VASmalltalk
+    AWS Support for VA Smalltalk
     <!---
     <br>
     <a href="docs/"><strong>Explore the docs »</strong></a>
