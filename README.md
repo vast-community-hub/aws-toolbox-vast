@@ -58,7 +58,9 @@ loader
 	useGitVersion.
 loader loadAllMapsWithRequiredMaps.
 ```
-5. (optional) Run SUnit for all `AWS Tests` map to ensure correct installation.
+
+5. Optionally run the SUnit tests included in the map `AWS Tests` to ensure correct installation. One easy way is to right-click on the `AWS Tests` map name in the Name pane (as opposed to version pane ) and then select `Test Loaded Applications`.
+
 
 
 ## Contributing
