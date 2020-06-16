@@ -42,24 +42,7 @@ loader loadAllMapsWithRequiredMaps.
 
 Or you can load the Configuration Map `AWS` (and optionally `AWS Tests` if you want to run the unit tests) from the context menu of the Configuration Maps Browser: `"Import"` -> `"Load Configuration Maps from Tonel repository..."` -> select path to root `aws-toolbox-vast` local repo. This will open a dialog and will use convenient defaults for the load. Refer to [its documentation](https://github.com/instantiations/tonel-vast#using-gui-menus) for more details.
 
-
-## Installation
-
-1. Install [VA Smalltalk 9.2.1 or newer](https://www.instantiations.com/products/vasmalltalk/download.html).
-2. Install Tonel support in your development image following [this guide](https://github.com/vasmalltalk/tonel-vast#installation).
-3. Clone this repository.
-4. Load the Configuration Map `AWS` (and optionally `AWS Tests` if you want to run the unit tests) either from the context menu of the Configuration Maps Browser ("*Import*" -> "*Load Configuration Maps from Tonel repository...*" -> select path to root `aws-toolbox-vast` local repo) or via a script:
-```smalltalk
-| loader path |
-path := (CfsPath named: '<insert path to root aws-toolbox-vast local repo here>').
-loader := TonelLoader readFromPath: path.
-loader
-	beUnattended;
-	useGitVersion.
-loader loadAllMapsWithRequiredMaps.
-```
-
-5. Optionally run the SUnit tests included in the map `AWS Tests` to ensure correct installation. One easy way is to right-click on the `AWS Tests` map name in the Name pane (as opposed to version pane ) and then select `Test Loaded Applications`.
+5. Optionally run the SUnit tests included in the map `AWS Tests` to ensure correct installation. One easy way is to right-click on the `AWS Tests` map name in the Name pane (as opposed to version pane) and then select `Test Loaded Applications`.
 
 
 
