@@ -1,5 +1,5 @@
 <p align="center">
-<img src="assets/logos/256x256.png">
+<!--<img src="assets/logos/256x256.png">-->
  <h1 align="center">AWS Toolbox for VAST</h1>
   <p align="center">
     AWS support libraries for VAST Platform (VA Smalltalk)
@@ -15,7 +15,7 @@
   </p>
 </p>
 
-Support library for using AWS from VA Smalltalk and for creating Lambda functions written in Smalltalk
+Support library for using AWS with VA Smalltalk and for creating Lambda functions written in Smalltalk
 
 ## License
 - The code is licensed under [MIT](LICENSE).
