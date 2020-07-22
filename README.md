@@ -1,8 +1,8 @@
 <p align="center">
-<!---<img src="assets/logos/128x128.png">-->
- <h1 align="center">AWS Support for VAST Platform (VA Smalltalk)</h1>
+<!---<img src="assets/logos/256x256.png">-->
+ <h1 align="center">AWS Toolbox for VAST</h1>
   <p align="center">
-    AWS Support for VA Smalltalk
+    AWS support libraries for VAST Platform (VA Smalltalk)
     <!---
     <br>
     <a href="docs/"><strong>Explore the docs »</strong></a>
