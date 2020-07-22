@@ -1,5 +1,5 @@
 <p align="center">
-<!---<img src="assets/logos/256x256.png">-->
+<img src="assets/logos/256x256.png">
  <h1 align="center">AWS Toolbox for VAST</h1>
   <p align="center">
     AWS support libraries for VAST Platform (VA Smalltalk)
