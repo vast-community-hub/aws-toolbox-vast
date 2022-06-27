@@ -46,6 +46,21 @@ ZnResponse >> contents [
 ]
 
 { #category : 'accessing' }
+ZnResponse >> contentsStream [
+	"Answer an EsStream pointing to the contents of receiver."
+
+	<answers: #EsStream>
+
+	self nativeResponse isSstError
+		ifTrue: [
+			^self nativeResponse errorObject contentsSize isZero
+				ifTrue: [nil]
+				ifFalse: [EsStream fromCollection: self nativeResponse errorObject contents]].
+
+	^self nativeResponse inputStream
+]
+
+{ #category : 'accessing' }
 ZnResponse >> contentType [
 
 	^ZnMimeType fromString: self actualResponse header contentType

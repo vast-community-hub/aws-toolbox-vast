@@ -53,8 +53,8 @@ ZnClient >> contents [
 
 	^response ifNotNil: [
 		self contentReader
-			ifNil: [self streaming ifTrue: [response entity stream] ifFalse: [response contents]]
-			ifNotNil: [:reader | reader value: response entity]]
+			ifNil: [self streaming ifTrue: [response contentsStream] ifFalse: [response contents]]
+			ifNotNil: [:reader | reader value: response]]
 ]
 
 { #category : 'accessing - options' }
@@ -317,6 +317,14 @@ ZnClient >> optionAt: key ifAbsentPut: block [
 	^options at: key ifAbsentPut: block
 ]
 
+{ #category : 'accessing - options' }
+ZnClient >> optionAt: key put: anObject [
+	"Puts anObject as the option named key."
+
+	options ifNil: [options := Dictionary new].
+	^options at: key put: anObject
+]
+
 { #category : 'private protocol' }
 ZnClient >> prepareNextRequest [
 	"The request could be modified destructively in the next run,
@@ -375,8 +383,10 @@ ZnClient >> privateExecute [
 		ifTrue: [
 			^self nativeClient
 				get: self request url asString
+				typed: nil
 				using: nil
-				withHeaders: self request headersDict].
+				withHeaders: self request headersDict
+				streaming: self streaming].
 	self isPost
 		ifTrue: [
 			^self nativeClient
@@ -469,6 +479,13 @@ ZnClient >> streaming [
 	If true, my users are responsible for actually reading the incoming response entity data stream."
 
 	^self optionAt: #streaming ifAbsent: [false]
+]
+
+{ #category : 'accessing - options' }
+ZnClient >> streaming: aBoolean [
+	"Return whether I will return streaming response objects."
+
+	^self optionAt: #streaming put: aBoolean
 ]
 
 { #category : 'private protocol' }

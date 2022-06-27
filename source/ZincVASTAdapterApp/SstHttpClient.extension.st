@@ -26,7 +26,7 @@ SstHttpClient >> head: aUrlObject withHeaders: headers [
 		templateMessage: self templateHttpHEADMessage copy
 		data: nil
 		onSuccessDo: [:httpRequest :url |
-			self send: httpRequest to: url redirect: self redirectCount ignoringResponseContent: true]
+			self send: httpRequest to: url redirect: self redirectCount]
 
 
 ]
