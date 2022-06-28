@@ -67,7 +67,7 @@ AWSS3Bucket >> initWithCredentials: aCredentials region: aRegion bucket: bucketN
 	self
 		initWithCredentials: aCredentials
 		region: aRegion
-		endpoint: 'https://s3-' , aRegion asLowercase , '.amazonaws.com/' , bucketName
+		endpoint: 'https://s3.' , aRegion asLowercase , '.amazonaws.com/' , bucketName
 ]
 
 { #category : 'initialization' }

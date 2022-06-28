@@ -33,13 +33,13 @@
 		#applications : OrderedCollection [
 			{
 				#name : 'AWSCoreApp',
-				#versionName : '271ee29-master',
-				#ts : 3833341973
+				#versionName : '',
+				#ts : 3833878927
 			},
 			{
 				#name : 'AWSSimpleStorageServiceApp',
-				#versionName : '271ee29-master',
-				#ts : 3833341973
+				#versionName : '',
+				#ts : 3833799163
 			},
 			{
 				#name : 'AWSVASTApp',

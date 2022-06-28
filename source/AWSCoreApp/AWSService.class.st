@@ -8,7 +8,8 @@ Class {
 		'httpClient',
 		'awsCredentials',
 		'endpoint',
-		'region'
+		'region',
+		'streaming'
 	],
 	#category : 'AWSCoreApp'
 }
@@ -41,6 +42,7 @@ AWSService >> createHttpClient [
 		systemPolicy;
 		enforceHttpSuccess: false;
 		enforceAcceptContentType: false;
+		streaming: self streaming;
 		yourself
 ]
 
@@ -95,4 +97,21 @@ AWSService >> signRequest: httpRequest [
 			httpRequest headers at: AWSHeaders x_amz_security_token put: awsCredentials sessionToken].
 
 	AWSSignerV4 new sign: httpRequest using: awsCredentials
+]
+
+{ #category : 'accessing' }
+AWSService >> streaming [
+	"Answer whether the native responses of receiver HTTP client 
+	 are streamed or not."
+	
+	^streaming ifNil: [streaming := false]
+]
+
+{ #category : 'accessing' }
+AWSService >> streaming: aBoolean [
+	"Sets whether the native responses of receiver HTTP client 
+	 are streamed or not."
+
+	streaming := aBoolean.
+	httpClient ifNotNil: [:http | http streaming: aBoolean ]
 ]
