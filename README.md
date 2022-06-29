@@ -25,8 +25,8 @@ Support library for using AWS with VA Smalltalk and for creating Lambda function
 
 ## Installation
 
-1. Install [VA Smalltalk 9.2.1 or newer](https://www.instantiations.com/products/vasmalltalk/download.html).
-2. Install Tonel support in your development image following [this guide](https://github.com/vasmalltalk/tonel-vast#installation).
+1. Install [VAST Platform 11](https://www.instantiations.com/vast-platform/).
+2. Install Tonel support in your development image following [this guide](https://github.com/instantiations/tonel-vast#installation).
 3. Clone this repository.
 4. The easiest and recommended approach is to install it via a script:
 
