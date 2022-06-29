@@ -15,7 +15,7 @@
   </p>
 </p>
 
-Support library for using AWS with VA Smalltalk and for creating Lambda functions written in Smalltalk
+Support library for using AWS with VAST Platform (formerly VA Smalltalk) and for creating Lambda functions written in Smalltalk
 
 ## License
 - The code is licensed under [MIT](LICENSE).
