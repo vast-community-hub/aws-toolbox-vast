@@ -2,8 +2,7 @@ Extension {
 	#name : 'GRCodec'
 }
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['convenience'] }
+{ #category : 'convenience' }
 GRCodec >> encodeString: aString [
 
 	^self encode: aString

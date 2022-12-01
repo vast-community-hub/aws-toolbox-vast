@@ -15,18 +15,17 @@
   </p>
 </p>
 
-Support library for using AWS with VA Smalltalk and for creating Lambda functions written in Smalltalk
+Support library for using AWS with VAST Platform (formerly VA Smalltalk) written in Smalltalk. This is the VAST Platform adaption of the project of [Jan van de Sandt](https://github.com/jvdsandt) at https://github.com/jvdsandt/pharo-aws-toolbox. The initial port to the VAST Platform is done bij [Vince Mecking](https://github.com/McKing2nd) and [Adriaan van Os](https://github.com/adriaon).
 
 ## License
+
 - The code is licensed under [MIT](LICENSE).
 - The documentation is licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
 
-
-
 ## Installation
 
-1. Install [VA Smalltalk 9.2.1 or newer](https://www.instantiations.com/products/vasmalltalk/download.html).
-2. Install Tonel support in your development image following [this guide](https://github.com/vasmalltalk/tonel-vast#installation).
+1. Install [VAST Platform 11](https://www.instantiations.com/vast-platform/).
+2. Install Tonel support in your development image following [this guide](https://github.com/instantiations/tonel-vast#installation).
 3. Clone this repository.
 4. The easiest and recommended approach is to install it via a script:
 

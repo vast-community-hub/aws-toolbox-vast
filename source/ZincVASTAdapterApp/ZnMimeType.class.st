@@ -70,6 +70,12 @@ ZnMimeType class >> main: aMainString sub: aSubstring parameters: aDictionary [
 		yourself
 ]
 
+{ #category : 'instance creation' }
+ZnMimeType class >> textCsv [
+
+	^self main: 'text' sub: 'csv'
+]
+
 { #category : 'initiliziation' }
 ZnMimeType class >> textSubTypeFragments [
 	"Return a set of fragments of sub types that indicate for any main type

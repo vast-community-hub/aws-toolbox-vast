@@ -21,12 +21,6 @@ ZnResponseHeaders >> at: aKey [
 	^self nativeHeaders at: aKey
 ]
 
-{ #category : 'testing' }
-ZnResponseHeaders >> isNotFound [
-
-	^self statusCode = 404
-]
-
 { #category : 'accessing' }
 ZnResponseHeaders >> nativeHeaders [
 

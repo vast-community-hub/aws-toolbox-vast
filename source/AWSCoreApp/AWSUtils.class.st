@@ -5,32 +5,14 @@ Class {
 }
 
 { #category : 'utilities' }
-AWSUtils class >> awsJson10MimeType [
-
-	^ZnMimeType main: 'application' sub: 'x-amz-json-1.0'
-]
-
-{ #category : 'utilities' }
-AWSUtils class >> awsJson11MimeType [
-
-	^ZnMimeType main: 'application' sub: 'x-amz-json-1.1'
-]
-
-{ #category : 'utilities' }
 AWSUtils class >> awsJsonMimeType [
 
-	^self awsJson11MimeType
+	^ ZnMimeType main: 'application' sub: 'x-amz-json-1.1'
 ]
 
 { #category : 'utilities' }
 AWSUtils class >> awsTimestamp [
 	"The number of milliseconds after Jan 1, 1970 00:00:00 UTC"
 
-	^(DateAndTime now asUTC - DateAndTime unixEpoch) asMilliSeconds
-]
-
-{ #category : 'instance creation' }
-AWSUtils class >> new [
-
-	^super new initialize
+	^ (DateAndTime now asUTC - DateAndTime unixEpoch) asMilliSeconds
 ]

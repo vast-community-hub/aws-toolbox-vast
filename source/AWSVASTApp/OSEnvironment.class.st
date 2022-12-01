@@ -11,13 +11,15 @@ OSEnvironment class >> current [
 	^self new
 ]
 
-{ #category : 'accessing' }
+{ #category : 'accessing',
+ #vaCategories : ['accessing','utilities'] }
 OSEnvironment >> at: aString [
 
 	^self at: aString ifAbsent: [nil]
 ]
 
-{ #category : 'accessing' }
+{ #category : 'accessing',
+ #vaCategories : ['accessing','utilities'] }
 OSEnvironment >> at: aString ifAbsent: aBlock [
 	"Needs to return the environment variable"
 

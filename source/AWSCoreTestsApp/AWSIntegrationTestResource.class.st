@@ -11,7 +11,7 @@ Class {
 { #category : 'accessing' }
 AWSIntegrationTestResource class >> credentials [
 
-	^Credentials ifNil: [AWSEnvironment defaultCredentials]
+	^ Credentials ifNil: [ AWSCredentials default]
 ]
 
 { #category : 'accessing' }
@@ -20,16 +20,10 @@ AWSIntegrationTestResource class >> credentials: awsCredentials [
 	Credentials := awsCredentials
 ]
 
-{ #category : 'instance creation' }
-AWSIntegrationTestResource class >> new [
-
-	^super new initialize
-]
-
 { #category : 'accessing' }
 AWSIntegrationTestResource class >> regionName [
 
-	^RegionName ifNil: [AWSEnvironment defaultRegionName]
+	^ RegionName ifNil: [ AWSEnvironment defaultRegionName ]
 ]
 
 { #category : 'accessing' }
@@ -41,17 +35,17 @@ AWSIntegrationTestResource class >> regionName: aString [
 { #category : 'accessing' }
 AWSIntegrationTestResource >> credentials [
 
-	^self class credentials
+	^ self class credentials
 ]
 
 { #category : 'testing' }
 AWSIntegrationTestResource >> isAvailable [
 
-	^self credentials notNil and: [self regionName notNil]
+	^ self credentials notNil and: [ self regionName notNil ]
 ]
 
 { #category : 'accessing' }
 AWSIntegrationTestResource >> regionName [
 
-	^self class regionName
+	^ self class regionName
 ]

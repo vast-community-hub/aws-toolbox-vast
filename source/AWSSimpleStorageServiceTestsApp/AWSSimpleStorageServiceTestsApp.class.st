@@ -18,12 +18,6 @@ AWSSimpleStorageServiceTestsApp class >> loaded [
 		(aClass class includesSelector: #initializeOnLoad) ifTrue: [ aClass initializeOnLoad ] ]
 ]
 
-{ #category : 'instance creation' }
-AWSSimpleStorageServiceTestsApp class >> new [
-
-	^super new initialize
-]
-
 { #category : 'loading/removing' }
 AWSSimpleStorageServiceTestsApp class >> removing [
 	"Send #unload to every class defined in this subapplication that implements it."

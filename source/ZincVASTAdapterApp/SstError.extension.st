@@ -2,11 +2,10 @@ Extension {
 	#name : 'SstError'
 }
 
-{ #category : '*ZincVASTAdapterApp',
- #vaCategories : ['Zn-Accessing'] }
+{ #category : 'Zn-Accessing' }
 SstError >> code [
 
-	(self errorCode = 153) ifFalse: [^self error: 'No error 153'].
+	(self errorCode = 153) ifFalse: [^self errorCode].
 
 	^self errorObject header responseCode asNumber
 ]

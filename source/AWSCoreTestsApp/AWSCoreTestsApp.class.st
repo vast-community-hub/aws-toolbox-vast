@@ -18,12 +18,6 @@ AWSCoreTestsApp class >> loaded [
 		(aClass class includesSelector: #initializeOnLoad) ifTrue: [ aClass initializeOnLoad ] ]
 ]
 
-{ #category : 'instance creation' }
-AWSCoreTestsApp class >> new [
-
-	^super new initialize
-]
-
 { #category : 'loading/removing' }
 AWSCoreTestsApp class >> removing [
 	"Send #unload to every class defined in this subapplication that implements it."

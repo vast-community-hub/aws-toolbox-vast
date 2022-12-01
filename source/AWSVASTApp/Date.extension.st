@@ -2,8 +2,7 @@ Extension {
 	#name : 'Date'
 }
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['printing'] }
+{ #category : 'printing' }
 Date >> compactPrintOn: aStream [
 
 	self year printOn: aStream.
@@ -13,21 +12,22 @@ Date >> compactPrintOn: aStream [
 	self dayOfMonth printOn: aStream padTo: 2
 ]
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['printing'] }
+{ #category : 'printing' }
 Date >> compactString [
 
 	| writeStream |
 
-	self compactPrintOn: (writeStream := WriteStream on: (self stringClass new: 10)).
+	writeStream := WriteStream on: (Locale current preferredStringClass new: 10).
+
+	self compactPrintOn: writeStream.
 
 	^writeStream contents asReducedString
 ]
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['printing'] }
+{ #category : 'printing' }
 Date >> printFormat: anArray [
 
 	(anArray = #(3 2 1 0 1 1 2)) ifTrue: [^self compactString].
+
 	^self error: 'Shortcut implementation failed'
 ]

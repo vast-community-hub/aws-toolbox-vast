@@ -18,10 +18,27 @@ AWSSimpleStorageServiceApp class >> loaded [
 		(aClass class includesSelector: #initializeOnLoad) ifTrue: [ aClass initializeOnLoad ] ]
 ]
 
-{ #category : 'instance creation' }
-AWSSimpleStorageServiceApp class >> new [
+{ #category : 'packaging' }
+AWSSimpleStorageServiceApp class >> packagerIncludeClasses [
 
-	^super new initialize
+	^self classes
+		remove: self ifAbsent: [];
+		yourself
+]
+
+{ #category : 'packaging' }
+AWSSimpleStorageServiceApp class >> packagerIncludeSelectors [
+
+	| selectors |
+
+	selectors := Set new.
+
+	self packagerIncludeClasses do: [:each |
+		selectors
+			addAll: each class selectors;
+			addAll: each selectors].
+
+	^selectors
 ]
 
 { #category : 'loading/removing' }

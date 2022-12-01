@@ -64,23 +64,33 @@ ZnResponse >> headers [
 ]
 
 { #category : 'testing' }
+ZnResponse >> isBadRequest [
+
+	^self code = 400
+]
+
+{ #category : 'testing' }
+ZnResponse >> isError [
+
+	^self code > 399
+]
+
+{ #category : 'testing' }
 ZnResponse >> isNotFound [
 
-	"Geeft iets meer terug dan alleen not found"
-
-	^self nativeResponse isSstError not and: [self headers isNotFound]
+	^self code = 404
 ]
 
 { #category : 'testing' }
 ZnResponse >> isRedirect [
 
-	^self actualResponse header isRedirectionResponse
+	^#(301 302 303 307) includes: self code
 ]
 
 { #category : 'testing' }
 ZnResponse >> isSuccess [
 
-	^self nativeResponse isSstError not and: [self nativeResponse header isSuccessfulResponse]
+	^#(200 201 202 204) includes: self code
 ]
 
 { #category : 'accessing' }

@@ -7,32 +7,26 @@ Class {
 	#category : 'AWSCoreApp'
 }
 
-{ #category : 'instance creation' }
-AWSHeaders class >> new [
-
-	^super new initialize
-]
-
 { #category : 'constants' }
 AWSHeaders class >> x_amz_content_sha256 [
 
-	^'x-amz-content-sha256'
+	^ 'x-amz-content-sha256'
 ]
 
 { #category : 'constants' }
 AWSHeaders class >> x_amz_date [
 
-	^'X-Amz-Date'
+	^ 'X-Amz-Date'
 ]
 
 { #category : 'constants' }
 AWSHeaders class >> x_amz_security_token [
 
-	^'X-Amz-Security-Token'
+	^ 'X-Amz-Security-Token'
 ]
 
 { #category : 'constants' }
 AWSHeaders class >> x_amz_target [
 
-	^'X-Amz-Target'
+	^ 'X-Amz-Target'
 ]

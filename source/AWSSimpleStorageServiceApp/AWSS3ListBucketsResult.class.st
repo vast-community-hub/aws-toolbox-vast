@@ -12,12 +12,6 @@ Class {
 	#category : 'AWSSimpleStorageServiceApp'
 }
 
-{ #category : 'instance creation' }
-AWSS3ListBucketsResult class >> new [
-
-	^super new initialize
-]
-
 { #category : 'initialization' }
 AWSS3ListBucketsResult >> initFromXmlElement: xmlElement [
 
@@ -26,46 +20,39 @@ AWSS3ListBucketsResult >> initFromXmlElement: xmlElement [
 	keyCount := (xmlElement contentStringAt: 'KeyCount') asInteger.
 	maxKeys := (xmlElement contentStringAt: 'MaxKeys') asInteger.
 	isTruncated := (xmlElement contentStringAt: 'IsTruncated') = 'true'.
-
-	objects :=
-		(xmlElement elementsAt: 'Contents') asArray
-			collect: [:each | AWSS3ObjectInfo new initFromXmlElement: each]
-
+	
+	objects := (xmlElement elementsAt: 'Contents') asArray 
+			collect: [ :each | AWSS3ObjectInfo new initFromXmlElement: each ]
+	
 
 ]
 
 { #category : 'accessing' }
 AWSS3ListBucketsResult >> isTruncated [
-
-	^isTruncated
+	^ isTruncated
 ]
 
 { #category : 'accessing' }
 AWSS3ListBucketsResult >> keyCount [
-
-	^keyCount
+	^ keyCount
 ]
 
 { #category : 'accessing' }
 AWSS3ListBucketsResult >> maxKeys [
-
-	^maxKeys
+	^ maxKeys
 ]
 
 { #category : 'accessing' }
 AWSS3ListBucketsResult >> name [
-
-	^name
+	^ name
 ]
 
 { #category : 'accessing' }
 AWSS3ListBucketsResult >> objects [
-
-	^objects
+	^ objects
 ]
 
 { #category : 'accessing' }
 AWSS3ListBucketsResult >> prefix [
-
-	^prefix
+	^ prefix
 ]
