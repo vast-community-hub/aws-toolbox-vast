@@ -21,3 +21,7 @@ loader loadApplicationForPackageNamed: 'AWS-SecurityTokenService'.
 loader loadApplicationForPackageNamed: 'AWS-SecurityTokenService-Tests'.
 loader loadApplicationForPackageNamed: 'AWS-SimpleStorageService'.
 loader loadApplicationForPackageNamed: 'AWS-SimpleStorageService-Tests'.
+
+"After applying updates from Pharo you may want to delete
+methods and classes from AWSVASTApp and ZincVASTAdapterApp
+that are no longer used to keep things tidy."
