@@ -1,5 +1,10 @@
 "Script to import from the pharo-aws-toolbox (Pharo format)"
 
+"While you do the unavoidable trial and error to get all
+of the packages ported, it is recommended to not create
+versions of the new apps (#doNotCreateVersions).
+Once you have the 'recipe' working, you can remove that."
+
 path := (CfsPath named: '<insert path to root pharo-aws-toolbox local repo here>').
 loader := TonelLoader readFromPath: path.
 loader
