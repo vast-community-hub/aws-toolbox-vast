@@ -15,7 +15,7 @@
   </p>
 </p>
 
-Support library for using AWS with the VAST Platform (formerly VA Smalltalk) written in Smalltalk. This is the VAST Platform adaption of the project of [Jan van de Sandt](https://github.com/jvdsandt) at https://github.com/jvdsandt/pharo-aws-toolbox. The initial port to the VAST Platform was done by [Vince Mecking](https://github.com/McKing2nd) and [Adriaan van Os](https://github.com/adriaon).
+Support library for using AWS with the VAST Platform (formerly VA Smalltalk) written in Smalltalk. This is the VAST Platform adaption of the project of [Jan van de Sandt](https://github.com/jvdsandt) at https://github.com/jvdsandt/pharo-aws-toolbox. The initial (partial) port to the VAST Platform was done by [Vince Mecking](https://github.com/McKing2nd) and [Adriaan van Os](https://github.com/adriaon).
 
 ## License
 
