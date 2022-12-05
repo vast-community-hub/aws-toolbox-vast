@@ -27,7 +27,7 @@
 				]
 			}
 		],
-		#ts : 3846680571,
+		#ts : 3847715481,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
@@ -43,8 +43,8 @@
 			},
 			{
 				#name : 'AWSSimpleStorageServiceApp',
-				#versionName : '6795b41-sts + AvO 2022Nov29 1531',
-				#ts : 3847195881
+				#versionName : '6795b41-sts + AvO 2022Dec05 1003',
+				#ts : 3847694437
 			},
 			{
 				#name : 'AWSVASTApp',
@@ -73,7 +73,7 @@
 					{
 						#name : 'AWS',
 						#versionName : '1.4',
-						#ts : 3846680571
+						#ts : 3847715481
 					},
 					{
 						#name : 'z.ST: SUnit',
@@ -83,7 +83,7 @@
 				]
 			}
 		],
-		#ts : 3846680631,
+		#ts : 3847715838,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
