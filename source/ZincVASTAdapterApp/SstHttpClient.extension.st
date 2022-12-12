@@ -2,8 +2,7 @@ Extension {
 	#name : 'SstHttpClient'
 }
 
-{ #category : '*ZincVASTAdapterApp',
- #vaCategories : ['HTTP Methods'] }
+{ #category : 'HTTP Methods' }
 SstHttpClient >> head: aUrlObject withHeaders: headers [
 	"Perform the HTTP HEAD Request
 	 The HTTP HEAD method requests the headers that are returned if the specified resource would be
@@ -18,15 +17,13 @@ SstHttpClient >> head: aUrlObject withHeaders: headers [
 	 For more details see comment in method
 	 #createRequestFor:typed:using:withHeaders:templateMessage:data:onSuccessDo:"
 
-	^self
-		createRequestFor: aUrlObject
+^self
+		createAndSendRequestFor: aUrlObject
 		typed: nil
 		using: nil
 		withHeaders: headers
 		templateMessage: self templateHttpHEADMessage copy
 		data: nil
-		onSuccessDo: [:httpRequest :url |
-			self send: httpRequest to: url redirect: self redirectCount ignoringResponseContent: true]
-
+		assemblerPolicy: (self newAssemblerPolicy ignoreContent: true)
 
 ]

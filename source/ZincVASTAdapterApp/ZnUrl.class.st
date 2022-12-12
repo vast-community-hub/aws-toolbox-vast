@@ -95,7 +95,7 @@ ZnUrl >> authority [
 
 	^self hasNonDefaultPort
 		ifTrue: [
-			self stringClass streamContents: [:stream |
+			Locale current preferredStringClass streamContents: [:stream |
 				stream
 					nextPutAll: self host;
 					nextPut: $:;
@@ -109,25 +109,29 @@ ZnUrl >> closePath [
 	self isDirectoryPath ifFalse: [self addPathSegment: #/]
 ]
 
-{ #category : 'encoding-decoding' }
+{ #category : 'encoding-decoding',
+ #vaCategories : ['encoding-decoding','utilities'] }
 ZnUrl >> decodePercent: string [
 
 	^ZnResourceMetaUtils decodePercent: string
 ]
 
-{ #category : 'printing' }
+{ #category : 'encoding-decoding',
+ #vaCategories : ['encoding-decoding','utilities'] }
 ZnUrl >> encode: aString on: aStream [
 
 	aStream nextPutAll: (ZnResourceMetaUtils encodePercent: aString)
 ]
 
-{ #category : 'encoding-decoding' }
+{ #category : 'encoding-decoding',
+ #vaCategories : ['encoding-decoding','utilities'] }
 ZnUrl >> encodePath: aString on: aStream [
 
 	aStream nextPutAll: aString urlEncoded
 ]
 
-{ #category : 'encoding-decoding' }
+{ #category : 'encoding-decoding',
+ #vaCategories : ['encoding-decoding','utilities'] }
 ZnUrl >> encodePercent: string [
 
 	^ZnResourceMetaUtils encodePercent: string
@@ -258,12 +262,10 @@ ZnUrl >> isFile [
 	^false
 ]
 
-{ #category : 'not implemented' }
-ZnUrl >> isSchemeNotUsingDoubleSlash: aString [
+{ #category : 'not implemented (yet)' }
+ZnUrl >> isSchemeNotUsingDoubleSlash: schemeString [
 
-	"Not Implemented Yet"
-
-
+	^self class schemesNotUsingDoubleSlash includes: schemeString asLowercase
 ]
 
 { #category : 'testing' }
@@ -374,7 +376,7 @@ ZnUrl >> parsePath: stream [
 		((stream peekFor: $/) and: [stream atEnd]) ifTrue: [self closePath]]
 ]
 
-{ #category : 'not implemented' }
+{ #category : 'not implemented (yet)' }
 ZnUrl >> parseUserInfo: stream [
 	"Not implemented yet"
 
@@ -564,12 +566,6 @@ ZnUrl >> setDefaults [
 
 	self hasScheme ifFalse: [self scheme: self schemeOrDefault].
 	self hasPort ifFalse: [self port: self portOrDefault]
-]
-
-{ #category : 'accessing' }
-ZnUrl >> sortedQueryKeys [
-
-	^self queryKeys sorted: [:a :b | a caseSensitiveSortsBefore: b]
 ]
 
 { #category : 'accessing' }

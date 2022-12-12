@@ -2,15 +2,13 @@ Extension {
 	#name : 'SequenceableCollection'
 }
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['testing'] }
+{ #category : 'testing' }
 SequenceableCollection >> beginsWith: aCollection [
 
 	^self beginsWithSubCollection: aCollection
 ]
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['testing'] }
+{ #category : 'testing' }
 SequenceableCollection >> endsWith: aCollection [
 
 	^self endsWithSubCollection: aCollection

@@ -2,8 +2,7 @@ Extension {
 	#name : 'AbtMD5Engine'
 }
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['actions'] }
+{ #category : 'actions' }
 AbtMD5Engine >> hashMessage: aByteArray [
 
 	^self digest: aByteArray

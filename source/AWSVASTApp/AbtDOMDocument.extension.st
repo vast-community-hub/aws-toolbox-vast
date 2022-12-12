@@ -2,8 +2,7 @@ Extension {
 	#name : 'AbtDOMDocument'
 }
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['accessing'] }
+{ #category : 'accessing' }
 AbtDOMDocument >> root [
 
 	^self rootTag

@@ -114,6 +114,12 @@ ZnRequest >> entity: aZnEntity [
 	self headersAt: HttpContentTypeKey put: aZnEntity contentType asString
 ]
 
+{ #category : 'accessing' }
+ZnRequest >> entityContents [
+
+	^self entity ifNotNil: [:ent | ent contents]
+]
+
 { #category : 'testing' }
 ZnRequest >> hasEntity [
 
@@ -145,7 +151,7 @@ ZnRequest >> initialize [
 
 	(headers := ZnHeaders new)
 		at: HttpAcceptKey put: '*/*';
-		at: HttpUserAgentKey put: 'Iets leuks'
+		at: HttpUserAgentKey put: ('%1 %2 Zinc Adapter' bindWith: System productName with: System productVersion)
 ]
 
 { #category : 'testing' }

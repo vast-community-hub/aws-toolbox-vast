@@ -11,26 +11,24 @@ AWSSimpleStorageService >> getBuckets [
 
 	httpRequest := ZnRequest get: self endpoint.
 	self signRequest: httpRequest.
+	
+	response := self httpClient 
+		request: httpRequest;
+		execute;
+		response.
+		
+	response isSuccess 
+		ifFalse: [ self handleErrorResponse: response ].
+		
+	^ AWSS3ListAllMyBucketsResult fromXmlString: response contents
 
-	response :=
-		self httpClient
-			request: httpRequest;
-			execute;
-			response.
-
-	response isSuccess ifFalse: [self handleErrorResponse: response].
-
-	^AWSS3ListAllMyBucketsResult fromXmlString: response contents
 ]
 
 { #category : 'testing' }
 AWSSimpleStorageService >> hasBucket: bucketName [
 
-	^[
-		self head: bucketName.
-		true]
-			on: AWSNotFoundError
-			do: [:ex | ex return: false]
+	^ [ self head: bucketName. true ] 
+			on: AWSNotFoundError do: [ :ex | ex return: false ]
 ]
 
 { #category : 'operations' }
@@ -40,23 +38,22 @@ AWSSimpleStorageService >> head: bucketName [
 
 	httpRequest := ZnRequest head: self endpoint asZnUrl / bucketName.
 	response := self executeRequest: httpRequest.
-
-	^response
+		
+	^ response
 ]
 
 { #category : 'initialization' }
 AWSSimpleStorageService >> initWithCredentials: aCredentials region: aRegion [
 
 	super initWithCredentials: aCredentials region: aRegion.
-	endpoint := 'https://s3-' , region asLowercase , '.amazonaws.com'
+	endpoint := 'https://s3-', region asLowercase, '.amazonaws.com'.
 ]
 
 { #category : 'operations' }
 AWSSimpleStorageService >> put: bucketName [
-	"The following source failed to compile (all double quotes have been doubled):
-	"
-	"Create a new bucket in the receivers region."
-	"
+	"The following source failed to compile (all double quotes have been doubled):"
+"
+	""Create a new bucket in the receivers region.""
 
 	| url entity httpRequest response |
 
@@ -73,9 +70,8 @@ AWSSimpleStorageService >> put: bucketName [
 	httpRequest entity: entity.
 	response := self executeRequest: httpRequest.
 		
-	^ response
-"
+	^ response"
+#tonelCompilationFailure.
 
-	##MonticelloMethodCompilationFailure.
-	^self error: 'The source for this method failed to compile'
+^ self halt: 'The source for this method failed to compile' 
 ]

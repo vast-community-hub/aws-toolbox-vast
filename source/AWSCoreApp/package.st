@@ -1,6 +1,6 @@
 Package {
 	#name : 'AWSCoreApp',
-	#vaPrerequisites : ['AWSVASTApp','NeoJSONCoreApp'],
+	#vaPrerequisites : ['AWSVASTApp','EmImageSupport','NeoJSONCoreApp'],
 	#vaSubApplications : [
 	{
 		#condition : 'true',

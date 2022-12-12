@@ -2,15 +2,13 @@ Extension {
 	#name : 'String'
 }
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['converting'] }
+{ #category : 'converting' }
 String >> asInteger [
 
 	^self asNumber
 ]
 
-{ #category : '*AWSVASTApp',
- #vaCategories : ['convenient'] }
+{ #category : 'convenient' }
 String >> trimmed [
 
 	^self trimBlanks

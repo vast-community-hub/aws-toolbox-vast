@@ -11,16 +11,9 @@ Class {
 	#category : 'AWSSimpleStorageServiceApp'
 }
 
-{ #category : 'instance creation' }
-AWSS3ObjectInfo class >> new [
-
-	^super new initialize
-]
-
 { #category : 'accessing' }
 AWSS3ObjectInfo >> eTag [
-
-	^eTag
+	^ eTag
 ]
 
 { #category : 'initialization' }
@@ -35,34 +28,26 @@ AWSS3ObjectInfo >> initFromXmlElement: xmlElement [
 
 { #category : 'accessing' }
 AWSS3ObjectInfo >> key [
-
-	^key
+	^ key
 ]
 
 { #category : 'accessing' }
 AWSS3ObjectInfo >> lastModified [
-
-	^lastModified
+	^ lastModified
 ]
 
 { #category : 'printing' }
 AWSS3ObjectInfo >> printOn: stream [
-
 	super printOn: stream.
-	stream
-		nextPut: $(;
-		print: self key;
-		nextPut: $)
+	stream nextPut: $(; print: self key; nextPut: $)
 ]
 
 { #category : 'accessing' }
 AWSS3ObjectInfo >> size [
-
-	^size
+	^ size
 ]
 
 { #category : 'accessing' }
 AWSS3ObjectInfo >> storageClass [
-
-	^storageClass
+	^ storageClass
 ]

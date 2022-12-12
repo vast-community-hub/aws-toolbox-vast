@@ -2,8 +2,7 @@ Extension {
 	#name : 'Collection'
 }
 
-{ #category : '*ZincVASTAdapterApp',
- #vaCategories : ['Zinc-accessing'] }
+{ #category : 'Zinc-accessing' }
 Collection >> addedToZnUrl: url [
 
 	^url withPathSegments: self

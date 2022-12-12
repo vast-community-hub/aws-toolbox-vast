@@ -8,16 +8,9 @@ Class {
 	#category : 'AWSSimpleStorageServiceApp'
 }
 
-{ #category : 'instance creation' }
-AWSS3BucketInfo class >> new [
-
-	^super new initialize
-]
-
 { #category : 'accessing' }
 AWSS3BucketInfo >> creationDate [
-
-	^creationDate
+	^ creationDate
 ]
 
 { #category : 'initialization' }
@@ -29,16 +22,11 @@ AWSS3BucketInfo >> initFromXmlElement: xmlElement [
 
 { #category : 'accessing' }
 AWSS3BucketInfo >> name [
-
-	^name
+	^ name
 ]
 
 { #category : 'printing' }
 AWSS3BucketInfo >> printOn: stream [
-
 	super printOn: stream.
-	stream
-		nextPut: $(;
-		print: self name;
-		nextPut: $)
+	stream nextPut: $(; print: self name; nextPut: $)
 ]

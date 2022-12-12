@@ -16,83 +16,83 @@ Class {
 { #category : 'instance creation' }
 AWSService class >> new [
 
-	^self
-		newWithCredentials: AWSEnvironment defaultCredentials
-		region: AWSEnvironment defaultRegionName
+	^ self newWithCredentials: AWSEnvironment defaultCredentials  
+			region: AWSEnvironment defaultRegionName
 ]
 
 { #category : 'instance creation' }
 AWSService class >> newWithCredentials: aCredentials region: aRegion [
 
-	^self basicNew initWithCredentials: aCredentials region: aRegion
+	^ self basicNew initWithCredentials: aCredentials region: aRegion
 ]
 
 { #category : 'accessing' }
 AWSService >> awsCredentials [
-
-	^awsCredentials
+	^ awsCredentials
 ]
 
 { #category : 'initialization' }
 AWSService >> createHttpClient [
 
-	^ZnClient new
-		loggingOff;
-		systemPolicy;
-		enforceHttpSuccess: false;
-		enforceAcceptContentType: false;
-		yourself
+	^ ZnClient new
+			loggingOff;
+			systemPolicy;
+			enforceHttpSuccess: false;
+			enforceAcceptContentType: false;
+			yourself
 ]
 
 { #category : 'accessing' }
 AWSService >> endpoint [
-
-	^endpoint
+	^ endpoint
 ]
 
 { #category : 'internal' }
 AWSService >> handleErrorResponse: httpResponse [
 
 	| data |
-
+	
 	data := httpResponse contents.
 	data notNil
-		ifTrue: [
+		ifTrue: [ 
 			data := NeoJSONReader fromString: data.
-			(AWSError data: data) signal].
-
-	httpResponse isNotFound ifTrue: [AWSNotFoundError signal].
-
-	httpResponse code = 403 ifTrue: [AWSForbiddenError signal].
-
-	AWSError signal: httpResponse code asString , ' - Unknown error'
+			(AWSError data: data) signal ].
+		
+	httpResponse isNotFound 
+		ifTrue: [ AWSNotFoundError signal ].
+		
+	httpResponse code = 403 
+		ifTrue: [ AWSForbiddenError signal ].
+		
+	AWSError signal: httpResponse code asString, ' - Unknown error'
 ]
 
 { #category : 'accessing' }
 AWSService >> httpClient [
 
-	^httpClient ifNil: [httpClient := self createHttpClient]
+	^ httpClient ifNil: [ httpClient := self createHttpClient ]
 ]
 
 { #category : 'initialization' }
 AWSService >> initWithCredentials: aCredentials region: aRegion [
 
 	awsCredentials := aCredentials.
-	region := aRegion
+	region := aRegion.
 ]
 
 { #category : 'accessing' }
 AWSService >> region [
-
-	^region
+	^ region
 ]
 
 { #category : 'internal' }
 AWSService >> signRequest: httpRequest [
 
-	awsCredentials sessionToken notNil
-		ifTrue: [
-			httpRequest headers at: AWSHeaders x_amz_security_token put: awsCredentials sessionToken].
+	awsCredentials isExpired
+		ifTrue: [ awsCredentials := awsCredentials refresh ].
 
+	awsCredentials sessionToken notNil
+		ifTrue: [ httpRequest headers at: AWSHeaders x_amz_security_token put: awsCredentials sessionToken ].
+		
 	AWSSignerV4 new sign: httpRequest using: awsCredentials
 ]

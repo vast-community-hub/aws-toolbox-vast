@@ -4,7 +4,6 @@ Class {
 	#instVars : [
 		'request',
 		'response',
-		'connection',
 		'options',
 		'nativeClient'
 	],
@@ -23,14 +22,15 @@ ZnClient class >> httpClientClass [
 { #category : 'private protocol' }
 ZnClient >> cleanupConnection [
 
-
+	self close
 ]
 
 { #category : 'private protocol' }
 ZnClient >> close [
-	"Doesn't do anything yet"
-
-
+		
+	self nativeClient isNil ifTrue: [^self].
+	
+	self nativeClient shutDown
 ]
 
 { #category : 'accessing - options' }
@@ -65,7 +65,8 @@ ZnClient >> enforceAcceptContentType [
 	^self optionAt: #enforceAcceptContentType ifAbsent: [false]
 ]
 
-{ #category : 'accessing - options' }
+{ #category : 'accessing - options',
+ #vaCategories : ['accessing - options','not implemented (yet)','utilities'] }
 ZnClient >> enforceAcceptContentType: aBoolean [
 	"Not implemented yet"
 
@@ -80,7 +81,8 @@ ZnClient >> enforceHttpSuccess [
 	^self optionAt: #enforceHttpSuccess ifAbsent: [false]
 ]
 
-{ #category : 'accessing - options' }
+{ #category : 'not implemented (yet)',
+ #vaCategories : ['not implemented (yet)','utilities'] }
 ZnClient >> enforceHttpSuccess: aBoolean [
 	"Not implemented yet"
 
@@ -93,6 +95,8 @@ ZnClient >> execute [
 	Return the #contents of the response, if any."
 
 	| result |
+
+	result := nil. "Keep Smalllint happy."
 
 	self prepareRequest.
 	self withProgressDo: [result := self executeWithTimeout].
@@ -180,7 +184,8 @@ ZnClient >> handleResponse [
 	^self contents
 ]
 
-{ #category : 'private protocol' }
+{ #category : 'not implemented (yet)',
+ #vaCategories : ['not implemented (yet)','utilities'] }
 ZnClient >> handleRetry: exception [
 	"No Retry mechanism yet, so not implemented"
 
@@ -196,7 +201,8 @@ ZnClient >> ifFailBlock [
 	^self optionAt: #ifFailBlock ifAbsentPut: [[:exception | exception pass]]
 ]
 
-{ #category : 'testing' }
+{ #category : 'not implemented (yet)',
+ #vaCategories : ['not implemented (yet)','testing'] }
 ZnClient >> isContentTypeAcceptable [
 	"Not implemented yet, so false for now"
 
@@ -249,14 +255,16 @@ ZnClient >> loggingOff [
 	self logLevel: 0
 ]
 
-{ #category : 'accessing' }
+{ #category : 'accessing',
+ #vaCategories : ['accessing','not implemented (yet)'] }
 ZnClient >> logLevel: integer [
 	"No logging implemented yet"
 
 
 ]
 
-{ #category : 'private protocol' }
+{ #category : 'not implemented (yet)',
+ #vaCategories : ['not implemented (yet)','private protocol'] }
 ZnClient >> logRedirect: url [
 	"Logging is not enabled yet"
 	"^ (self newLogEvent: ZnClientFollowingRedirectEvent)
@@ -371,33 +379,12 @@ ZnClient >> prepareRequestHook [
 { #category : 'private protocol' }
 ZnClient >> privateExecute [
 
-	self isGet
-		ifTrue: [
-			^self nativeClient
-				get: self request url asString
-				using: nil
-				withHeaders: self request headersDict].
-	self isPost
-		ifTrue: [
-			^self nativeClient
-				post: self request entity contents
-				typed: nil
-				at: self request url asString
-				using: nil
-				withHeaders: self request headersDict].
-	self isHead
-		ifTrue: [
-			^self nativeClient head: self request url asString withHeaders: self request headersDict].
-	self isPut
-		ifTrue: [
-			^self nativeClient
-				put: self request entity contents
-				typed: nil
-				at: self request url asString
-				using: nil
-				withHeaders: self request headersDict].
-	self isDelete ifTrue: [^self nativeClient delete: self request url asString typed: nil].
-
+	self isGet ifTrue: [^self nativeClient get: self request url asString using: nil withHeaders: self request headersDict].
+	self isPost ifTrue: [^self nativeClient post: self request entityContents typed: nil at: self request url asString using: nil withHeaders: self request headersDict].
+	self isHead ifTrue: [^self nativeClient head:self request url asString withHeaders: self request headersDict].
+	self isPut ifTrue: [^self nativeClient put: self request entityContents typed: nil at: self request url asString using: nil withHeaders: self request headersDict].
+	self isDelete ifTrue: [^self nativeClient delete: self request url asString typed: nil using: nil withHeaders: self request headersDict].
+	
 	^self error: 'Execution of HttpMethod not implemented yet'
 ]
 
@@ -449,7 +436,7 @@ ZnClient >> sendCookies [
 
 ]
 
-{ #category : 'private protocol' }
+{ #category : 'not implemented (yet)' }
 ZnClient >> setBasicAuthenticationUsername: aUsername password: aPassword [
 	"not needed so net implemented yet"
 
@@ -506,18 +493,27 @@ ZnClient >> url: urlObject [
 ZnClient >> validateConnectionForHost: host port: port [
 	"Method taken from Pharo"
 
-	(connection isNil or: [request url isNil]) ifTrue: [^self].
+	"(connection isNil or: [ request url isNil ]) 
+		ifTrue: [ ^ self ].
+	(request url host = host and: [ request url port = port ])
+		ifFalse: [ self close ]"
+
+	" Adapted for VASt."
+
+	request url isNil ifTrue: [^self close].
 	(request url host = host and: [request url port = port]) ifFalse: [self close]
 ]
 
-{ #category : 'private protocol' }
+{ #category : 'not implemented (yet)',
+ #vaCategories : ['not implemented (yet)','private protocol'] }
 ZnClient >> withProgressDo: aBlock [
 	"For server runtime, nog progress indication is needed"
 
 	^aBlock value
 ]
 
-{ #category : 'private protocol' }
+{ #category : 'not implemented (yet)',
+ #vaCategories : ['not implemented (yet)','private protocol'] }
 ZnClient >> withTimeoutDo: aBlock [
 
 	^aBlock

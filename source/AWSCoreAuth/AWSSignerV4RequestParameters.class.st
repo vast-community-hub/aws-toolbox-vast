@@ -16,71 +16,61 @@ Class {
 AWSSignerV4RequestParameters class >> getRegionNameFromHost: aString [
 
 	(aString endsWith: '.amazonaws.com')
-		ifTrue: [| part index |
+		ifTrue: [ 
+			| part index |
 			part := aString copyFrom: 1 to: aString size - 14.
 			index := part lastIndexOf: $..
-			index > 0 ifTrue: [^(part allButFirst: index) asLowercase].
-			(part beginsWith: 's3-') ifTrue: [^(part allButFirst: 3) asLowercase]].
-
+			index > 0
+				ifTrue: [ ^ (part allButFirst: index) asLowercase ].
+			(part beginsWith: 's3-')	
+				ifTrue: [ ^(part allButFirst: 3) asLowercase ] ].
+			
 	self error: 'Cannot get region name from host name'
-
-	"self getRegionNameFromHost: 'logs.eu-west-1.amazonaws.com'"
-
+	
+	"self getRegionNameFromHost: 'logs.eu-west-1.amazonaws.com'"	
 ]
 
 { #category : 'utilities' }
 AWSSignerV4RequestParameters class >> getServiceNameFromHost: aString [
 
 	| index |
-
+	
 	index := aString indexOf: $..
-	^index > 1
-		ifTrue: [(aString copyFrom: 1 to: index - 1) asLowercase]
-		ifFalse: [self error: 'Cannot get service name from host name']
+	^ index > 1
+			ifTrue: [ (aString copyFrom: 1 to: index-1) asLowercase ]
+			ifFalse: [ self error: 'Cannot get service name from host name' ]
 
-			"self getServiceNameFromHost: 'logs.eu-west-1.amazonaws.com'"
-
-]
-
-{ #category : 'instance creation' }
-AWSSignerV4RequestParameters class >> new [
-
-	^super new initialize
+	"self getServiceNameFromHost: 'logs.eu-west-1.amazonaws.com'"	
 ]
 
 { #category : 'accessing' }
 AWSSignerV4RequestParameters >> formattedSigningDate [
-
-	^formattedSigningDate
+	^ formattedSigningDate
 ]
 
 { #category : 'accessing' }
 AWSSignerV4RequestParameters >> formattedSigningDateTime [
 
-	^formattedSigningDateTime
+	^ formattedSigningDateTime
 ]
 
 { #category : 'internal' }
 AWSSignerV4RequestParameters >> generateScope [
 
-	^String streamContents: [:s |
+	^ String streamContents: [ :s |
 		s
-			nextPutAll: self formattedSigningDate;
-			nextPut: $/;
-			nextPutAll: self regionName;
-			nextPut: $/;
-			nextPutAll: self serviceName;
-			nextPut: $/;
-			nextPutAll: 'aws4_request']
+			nextPutAll: self formattedSigningDate; nextPut: $/;
+			nextPutAll: self regionName; nextPut: $/;
+			nextPutAll: self serviceName; nextPut: $/;
+			nextPutAll: 'aws4_request' ]
 ]
 
 { #category : 'initialization' }
 AWSSignerV4RequestParameters >> initWithDatTime: aDateTime request: aRequest [
 
-	self
-		initWithDatTime: aDateTime
-		service: (self class getServiceNameFromHost: aRequest url host)
-		region: (self class getRegionNameFromHost: aRequest url host)
+	self initWithDatTime: aDateTime 
+			service: (self class getServiceNameFromHost: aRequest url host) 
+			region: (self class getRegionNameFromHost: aRequest url host) 
 ]
 
 { #category : 'initialization' }
@@ -89,7 +79,8 @@ AWSSignerV4RequestParameters >> initWithDatTime: aDateTime service: aServiceName
 	self setSigningDateTime: aDateTime.
 	serviceName := aServiceName.
 	regionName := aRegionName.
-	signingAlgorithm := AWSSignerV4 signingAlgorithm
+	signingAlgorithm := AWSSignerV4 signingAlgorithm.
+
 ]
 
 { #category : 'initialization' }
@@ -100,20 +91,18 @@ AWSSignerV4RequestParameters >> initWithRequest: aRequest [
 
 { #category : 'accessing' }
 AWSSignerV4RequestParameters >> regionName [
-
-	^regionName
+	^ regionName
 ]
 
 { #category : 'accessing' }
 AWSSignerV4RequestParameters >> scope [
 
-	^self generateScope
+	^ self generateScope
 ]
 
 { #category : 'accessing' }
 AWSSignerV4RequestParameters >> serviceName [
-
-	^serviceName
+	^ serviceName
 ]
 
 { #category : 'initialization' }
@@ -121,27 +110,24 @@ AWSSignerV4RequestParameters >> setSigningDateTime: aDateTime [
 
 	signingDateTime := aDateTime.
 	formattedSigningDate := signingDateTime asDate printFormat: #(3 2 1 0 1 1 2).
-	formattedSigningDateTime :=
-		String streamContents: [:s |
-			s
-				nextPutAll: formattedSigningDate;
-				nextPut: $T.
-			signingDateTime hours printOn: s base: 10 nDigits: 2.
-			signingDateTime minutes printOn: s base: 10 nDigits: 2.
-			signingDateTime seconds printOn: s base: 10 nDigits: 2.
-			s nextPut: $Z]
+	formattedSigningDateTime := String streamContents: [ :s |
+		s nextPutAll: formattedSigningDate; nextPut: $T.
+		signingDateTime hours printOn: s base: 10 nDigits: 2.
+		signingDateTime minutes printOn: s base: 10 nDigits: 2.
+		signingDateTime seconds printOn: s base: 10 nDigits: 2.
+		s nextPut: $Z ]
+
 ]
 
 { #category : 'accessing' }
 AWSSignerV4RequestParameters >> signingAlgorithm [
-
-	^signingAlgorithm
+	^ signingAlgorithm
 ]
 
 { #category : 'accessing' }
 AWSSignerV4RequestParameters >> signingDateTime [
 
-	^signingDateTime ifNil: [
-		self signingDateTime: DateAndTime now asUTC.
-		signingDateTime]
+	^ signingDateTime ifNil: [ 
+			self setSigningDateTime: DateAndTime now asUTC.
+			signingDateTime ]
 ]

@@ -2,43 +2,37 @@ Extension {
 	#name : 'AbtDOMElement'
 }
 
-{ #category : '*StAPXmlExtensionsApp',
- #vaCategories : ['Simple-API'] }
+{ #category : 'Simple-API' }
 AbtDOMElement >> contentString [
 
 	^self contents abrFirst ifNotNil: [:el | el data]
 ]
 
-{ #category : '*StAPXmlExtensionsApp',
- #vaCategories : ['Simple-API'] }
+{ #category : 'Simple-API' }
 AbtDOMElement >> contentStringAt: aString [
 
 	^(self getElementByTagName: aString) contentString
 ]
 
-{ #category : '*StAPXmlExtensionsApp',
- #vaCategories : ['Simple-API'] }
+{ #category : 'Simple-API' }
 AbtDOMElement >> elementAt: aString [
 
 	^self getElementByTagName: aString
 ]
 
-{ #category : '*StAPXmlExtensionsApp',
- #vaCategories : ['accessing'] }
+{ #category : 'accessing' }
 AbtDOMElement >> elements [
 
 	^self contents
 ]
 
-{ #category : '*StAPXmlExtensionsApp',
- #vaCategories : ['Simple-API'] }
+{ #category : 'Simple-API' }
 AbtDOMElement >> elementsAt: aString [
 
 	^self getElementsByTagName: aString
 ]
 
-{ #category : '*StAPXmlExtensionsApp',
- #vaCategories : ['actions'] }
+{ #category : 'actions' }
 AbtDOMElement >> elementsDo: aBlock [
 
 	self contents isCollection

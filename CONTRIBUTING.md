@@ -3,6 +3,8 @@ Contributing
 
 There are several ways to contribute to the project: reporting bugs, sending feedback, proposing ideas for new features, fixing or adding documentation, promoting the project, or even contributing code.
 
+Unless being specific for the VAST Platform, are changes for all packages except AWSVASTApp, StAPXmlExtensionsApp and ZincVASTAdapterApp best offered to the upstrean project at https://github.com/jvdsandt/pharo-aws-toolbox.
+
 ## Reporting issues
 
 You can report issues [here](https://github.com/vast-community-hub/aws-toolbox-vast/issues/new)
@@ -16,7 +18,7 @@ You can report issues [here](https://github.com/vast-community-hub/aws-toolbox-v
 - Code contributions without test cases have a lower probability of being merged into the main branch.
 
 ### Using Tonel
-1. Install [VA Smalltalk 9.2.1 or newer](https://www.instantiations.com/products/vasmalltalk/download.html).
+1. Install [VA Smalltalk 11.0.1 or newer](https://www.instantiations.com/products/vasmalltalk/download.html).
 2. Clone this project or your fork using Git.
 6. Create a new branch to host your code changes.
 3. Using Tonel, load all the desired Configuration Maps or Applications.

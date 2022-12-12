@@ -5,60 +5,65 @@
 				#condition : 'true',
 				#requiredMaps : [
 					{
-						#name : 'Platform Portability',
-						#versionName : 'V 9.2.0  [453]',
-						#ts : 3746251879
+						#name : 'Grease Core',
+						#versionName : 'V 11.0.1  [513]',
+						#ts : 3825064942
 					},
 					{
 						#name : 'z.ST: XML Parser',
-						#versionName : 'V 9.2.1  [457]',
-						#ts : 3761144594
+						#versionName : 'V 11.0.1  [513]',
+						#ts : 3834696277
 					},
 					{
 						#name : 'z.ST: Server Smalltalk (SST) - HTTP',
-						#versionName : 'V 9.2.1  [457]',
-						#ts : 3761144594
+						#versionName : 'V 11.0.1  [513]',
+						#ts : 3834696273
 					},
 					{
 						#name : 'z.ST: JSON Support',
-						#versionName : 'V 9.2.1  [457]',
-						#ts : 3761144594
+						#versionName : 'V 11.0.1  [513]',
+						#ts : 3834696270
 					}
 				]
 			}
 		],
-		#ts : 3766742672,
+		#ts : 3847715481,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
 			{
 				#name : 'AWSCoreApp',
-				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
-				#ts : 3767354590
+				#versionName : '6795b41-sts + AvO 2022Nov30 1232',
+				#ts : 3847267584
+			},
+			{
+				#name : 'AWSSecurityTokenServiceApp',
+				#versionName : '6795b41-sts + AvO 2022Nov30 1232',
+				#ts : 3847269619
 			},
 			{
 				#name : 'AWSSimpleStorageServiceApp',
-				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
-				#ts : 3767354596
+				#versionName : '6795b41-sts + AvO 2022Dec05 1003',
+				#ts : 3847694437
 			},
 			{
 				#name : 'AWSVASTApp',
-				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
-				#ts : 3767354587
+				#versionName : '271ee29-master + AvO 2022Nov28 1200',
+				#ts : 3847096250
 			},
 			{
 				#name : 'StAPXmlExtensionsApp',
-				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
-				#ts : 3767354574
+				#versionName : '271ee29-master',
+				#ts : 3846061101
 			},
 			{
 				#name : 'ZincVASTAdapterApp',
-				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
-				#ts : 3767354575
+				#versionName : '271ee29-master + AvO 2022Nov29 1614',
+				#ts : 3847198007
 			}
 		],
 		#name : 'AWS',
-		#versionName : '1.3'
+		#versionName : '1.4'
 	},
 	{
 		#conditions : [
@@ -67,33 +72,38 @@
 				#requiredMaps : [
 					{
 						#name : 'AWS',
-						#versionName : '1.3',
-						#ts : 3766742672
+						#versionName : '1.4',
+						#ts : 3847715481
 					},
 					{
 						#name : 'z.ST: SUnit',
-						#versionName : 'V 9.2.1  [457]',
-						#ts : 3761144594
+						#versionName : 'V 11.0.1  [513]',
+						#ts : 3834696276
 					}
 				]
 			}
 		],
-		#ts : 3766742739,
+		#ts : 3847715838,
 		#comment : '',
 		#formatVersion : '1.1',
 		#applications : OrderedCollection [
 			{
 				#name : 'AWSCoreTestsApp',
-				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
-				#ts : 3767354604
+				#versionName : '9e3d3b6-sts + AvO 2022Nov24 1529',
+				#ts : 3846762860
+			},
+			{
+				#name : 'AWSSecurityTokenServiceTestsApp',
+				#versionName : '6795b41-sts',
+				#ts : 3847195168
 			},
 			{
 				#name : 'AWSSimpleStorageServiceTestsApp',
-				#versionName : '3ed1a5a-master (2020-05-18T12:19:11-03:00)',
-				#ts : 3767354607
+				#versionName : '9e3d3b6-sts + AvO 2022Nov24 1338',
+				#ts : 3846681809
 			}
 		],
 		#name : 'AWS Tests',
-		#versionName : '1.3'
+		#versionName : '1.4'
 	}
 ]

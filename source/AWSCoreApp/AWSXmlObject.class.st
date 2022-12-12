@@ -6,21 +6,20 @@ Class {
 
 { #category : 'instance creation' }
 AWSXmlObject class >> fromXmlElement: anElement [
-
-	^self new initFromXmlElement: anElement
+	^ self new initFromXmlElement: anElement
 ]
 
 { #category : 'instance creation' }
 AWSXmlObject class >> fromXmlString: aString [
 
 	| xmlDoc |
-
-	xmlDoc := AbtXmlDOMParser parse: aString.
-	^self fromXmlElement: xmlDoc root
+	
+	xmlDoc := self xmlParser parse: aString.
+	^ self fromXmlElement: xmlDoc root
 ]
 
-{ #category : 'instance creation' }
-AWSXmlObject class >> new [
+{ #category : 'resources' }
+AWSXmlObject class >> xmlParser [
 
-	^super new initialize
+	^AbtXmlDOMParser
 ]

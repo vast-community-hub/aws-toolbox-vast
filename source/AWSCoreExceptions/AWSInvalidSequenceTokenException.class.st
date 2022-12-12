@@ -7,5 +7,5 @@ Class {
 { #category : 'acccessing' }
 AWSInvalidSequenceTokenException >> expectedSequenceToken [
 
-	^self data at: 'expectedSequenceToken' ifAbsent: [nil]
+	^ self data at: 'expectedSequenceToken' ifAbsent: [ nil ]
 ]
